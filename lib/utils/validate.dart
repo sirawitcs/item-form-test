@@ -11,7 +11,7 @@ String? validateInt(String? value, String? name) {
     return "$name ห้ามว่าง";
   }
   if (int.tryParse(value) == null) {
-    return "$name กรอกเฉพาะตัวเลขเท่านั้น";
+    return "$name ต้องเป็นตัวเลขเท่านั้น";
   }
 
   return null;
@@ -24,7 +24,7 @@ String? validateDouble(String? value, String? name) {
 
   final parsed = double.tryParse(value);
   if (parsed == null) {
-    return "$name กกรอกเฉพาะตัวเลขหรือทศนิยมเท่านั้น";
+    return "$name ต้องเป็นตัวเลขหรือทศนิยมเท่านั้น";
   }
 
   return null;
@@ -32,7 +32,7 @@ String? validateDouble(String? value, String? name) {
 
 String? validateDrowdown(String? value, String? name) {
   if (value == null || value.isEmpty) {
-    return "$name ห่ามว่าง";
+    return "$name ห้ามว่าง";
   }
 
   return null;
