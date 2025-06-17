@@ -6,16 +6,12 @@ class CustomTextfieldWidget extends StatefulWidget {
     this.controller,
     required this.hintText,
     this.validator,
-    this.fieldKey,
-    this.widget,
     this.maxLine,
     this.inputType,
   });
   final TextEditingController? controller;
   final String hintText;
   final FormFieldValidator<String>? validator;
-  final GlobalKey<FormFieldState>? fieldKey;
-  final Widget? widget;
   final int? maxLine;
   final TextInputType? inputType;
 
@@ -30,7 +26,6 @@ class _CustomTextfieldWidgetState extends State<CustomTextfieldWidget> {
       constraints: BoxConstraints(minHeight: 40),
       child: TextFormField(
         controller: widget.controller,
-        key: widget.fieldKey,
         validator: widget.validator,
         maxLines: widget.maxLine,
         autovalidateMode: AutovalidateMode.onUserInteraction,
