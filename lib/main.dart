@@ -86,11 +86,29 @@ class _MyHomePageState extends State<MyHomePage> {
                       });
                       await cameraController.stop();
                       if (mounted) Navigator.pop(context);
-                    } catch (e) {}
+                    } catch (e) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text('QR Code ไม่ถูกต้อง'),
+                          backgroundColor: Colors.red,
+                        ),
+                      );
+                      await cameraController.stop();
+                      if (mounted) Navigator.pop(context);
+                    }
                   }
                 },
               ),
             ),
+            actions: [
+              ElevatedButton(
+                onPressed: () async {
+                  await cameraController.stop();
+                  if (mounted) Navigator.pop(context);
+                },
+                child: Text('ปิด'),
+              ),
+            ],
           );
         },
       );
